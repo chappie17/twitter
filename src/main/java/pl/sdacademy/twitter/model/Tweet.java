@@ -31,6 +31,10 @@ public class Tweet {
 		this.message = message;
 	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -10,8 +10,8 @@ public class Dashboard {
         this.repository = repository;
     }
 
-    public Tweet create(String msg, String author) throws TweetRepositoryException {
-        Tweet newTweet = new Tweet(msg, author);
+    public Tweet create(String msg) throws TweetRepositoryException {
+        Tweet newTweet = new Tweet(msg);
         try {
             repository.add(newTweet);
         } catch (TweetRepositoryException e) {

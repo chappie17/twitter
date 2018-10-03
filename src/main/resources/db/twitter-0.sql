@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS tweet;
-
-CREATE TABLE tweet (
-  id      INT PRIMARY KEY AUTO_INCREMENT,
-  message VARCHAR(140),
-  author  VARCHAR(100)
-);

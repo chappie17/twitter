@@ -3,17 +3,13 @@ package pl.sdacademy.twitter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pl.sdacademy.twitter.db.DataSourceFactory;
 import pl.sdacademy.twitter.db.JpaTweetRepository;
-import pl.sdacademy.twitter.db.SqlTweetRepository;
-import pl.sdacademy.twitter.db.executor.ClasspathSqlScriptExecutor;
 import pl.sdacademy.twitter.model.Dashboard;
 import pl.sdacademy.twitter.model.Tweet;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.sql.DataSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,10 +34,9 @@ public class DashboardTest {
 	void test0() throws Exception{
 		// given
 		String msg = "content";
-		String author = "goobar";
 
 		// when
-		Tweet tweet = dashboard.create(msg, author);
+		Tweet tweet = dashboard.create(msg);
 
 		// then
 
@@ -53,8 +48,8 @@ public class DashboardTest {
 	void test1() throws Exception{
 		// given
 		String msg = "content";
-		String author = "goobar";
-		Tweet tweet = dashboard.create(msg, author);
+
+		Tweet tweet = dashboard.create(msg);
 
 		// when
 		Stream<Tweet> allTweets = dashboard.load();
