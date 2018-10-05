@@ -14,6 +14,10 @@ public class Author {
     @JoinColumn(name = "fk_author")
     private Collection <Tweet> tweets;
 
+    public Author(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -36,5 +40,17 @@ public class Author {
 
     public void setTweets(Collection<Tweet> tweets) {
         this.tweets = tweets;
+    }
+
+    public Author() {
+    }
+
+    public Author(String name, Collection<Tweet> tweets) {
+        this.name = name;
+        this.tweets = tweets;
+    }
+
+    public Tweet addTweet(Tweet tweet) {
+        return tweet;
     }
 }

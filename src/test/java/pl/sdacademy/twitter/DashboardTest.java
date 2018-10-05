@@ -3,7 +3,8 @@ package pl.sdacademy.twitter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pl.sdacademy.twitter.db.JpaTweetRepository;
+import pl.sdacademy.twitter.db.JpaAuthorRepository;
+import pl.sdacademy.twitter.model.Author;
 import pl.sdacademy.twitter.model.Dashboard;
 import pl.sdacademy.twitter.model.Tweet;
 
@@ -26,7 +27,7 @@ public class DashboardTest {
 
 		//new ClasspathSqlScriptExecutor(dataSource).execute
 		//		("db/twitter-0.sql");
-		dashboard = new Dashboard(new JpaTweetRepository(entityManager));
+		dashboard = new Dashboard(entityManager);
 	}
 
 	@DisplayName("author should be able to create a new tweet")
@@ -36,7 +37,7 @@ public class DashboardTest {
 		String msg = "content";
 
 		// when
-		Tweet tweet = dashboard.create(msg);
+		Tweet tweet = dashboard.create(msg, "any user");
 
 		// then
 
@@ -48,8 +49,7 @@ public class DashboardTest {
 	void test1() throws Exception{
 		// given
 		String msg = "content";
-
-		Tweet tweet = dashboard.create(msg);
+		Tweet tweet = dashboard.create(msg, "any user");
 
 		// when
 		Stream<Tweet> allTweets = dashboard.load();
