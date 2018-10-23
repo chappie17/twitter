@@ -1,8 +1,8 @@
-package pl.sdacademy.twitter.db;
+package pl.sdacademy.tweeter.db.executor;
 
-import pl.sdacademy.twitter.model.Author;
-import pl.sdacademy.twitter.model.AuthorRepository;
-import pl.sdacademy.twitter.model.TweeterRepositoryException;
+import pl.sdacademy.tweeter.model.Author;
+import pl.sdacademy.tweeter.model.AuthorRepository;
+import pl.sdacademy.tweeter.model.TweeterRepositoryException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

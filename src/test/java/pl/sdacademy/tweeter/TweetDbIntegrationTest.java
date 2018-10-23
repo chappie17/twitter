@@ -1,8 +1,8 @@
-package pl.sdacademy.twitter;
+package pl.sdacademy.tweeter;
 
 import org.junit.jupiter.api.*;
-import pl.sdacademy.twitter.model.Author;
-import pl.sdacademy.twitter.model.Tweet;
+import pl.sdacademy.tweeter.model.Author;
+import pl.sdacademy.tweeter.model.Tweet;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

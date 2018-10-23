@@ -1,4 +1,4 @@
-package pl.sdacademy.twitter.db.executor;
+package pl.sdacademy.tweeter.db.executor;
 
 import javax.sql.DataSource;
 import java.io.InputStream;

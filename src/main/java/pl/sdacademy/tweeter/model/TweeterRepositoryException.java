@@ -1,4 +1,4 @@
-package pl.sdacademy.twitter.model;
+package pl.sdacademy.tweeter.model;
 
 public class TweeterRepositoryException extends RuntimeException {
 

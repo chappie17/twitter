@@ -1,4 +1,4 @@
-package pl.sdacademy.twitter.db;
+package pl.sdacademy.tweeter.db;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.h2.jdbcx.JdbcDataSource;
@@ -15,7 +15,7 @@ public class DataSourceFactory {
     private static DataSource mysql() throws SQLException {
         MysqlDataSource mysqlDataSource = new MysqlDataSource();
         mysqlDataSource.setUser("root");
-        mysqlDataSource.setURL("jdbc:mysql://localhost/twitter");
+        mysqlDataSource.setURL("jdbc:mysql://localhost/web");
         mysqlDataSource.setUseSSL(false);
         return mysqlDataSource;
     }

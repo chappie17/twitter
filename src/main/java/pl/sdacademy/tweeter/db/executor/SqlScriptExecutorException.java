@@ -1,4 +1,4 @@
-package pl.sdacademy.twitter.db.executor;
+package pl.sdacademy.tweeter.db.executor;
 
 public class SqlScriptExecutorException extends Exception {
 
