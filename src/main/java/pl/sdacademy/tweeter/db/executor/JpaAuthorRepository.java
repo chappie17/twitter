@@ -19,13 +19,16 @@ public class JpaAuthorRepository implements AuthorRepository {
 
     @Override
     public void save(Author author) throws TweeterRepositoryException {
+
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        // if detached
-        //  -> merge
-        // if transient -> persist
-        entityManager.persist(author);
-        transaction.commit();
+        try {
+            entityManager.persist(author);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            throw new TweeterRepositoryException("Transaction failed.");
+        };
     }
 
     @Override

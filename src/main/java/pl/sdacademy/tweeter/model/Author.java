@@ -10,12 +10,26 @@ public class Author {
     @GeneratedValue
     private int id;
     private String name;
+    private String password;
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_author")
     private Collection <Tweet> tweets;
 
+    public Author(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     public Author(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
@@ -53,4 +67,6 @@ public class Author {
     public Tweet addTweet(Tweet tweet) {
         return tweet;
     }
+
+
 }

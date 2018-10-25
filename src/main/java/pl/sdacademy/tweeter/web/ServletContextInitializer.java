@@ -1,6 +1,9 @@
 package pl.sdacademy.tweeter.web;
 
+import pl.sdacademy.tweeter.db.TwitterEntityManagerFactory;
+import pl.sdacademy.tweeter.db.executor.JpaAuthorRepository;
 import pl.sdacademy.tweeter.model.Dashboard;
+import pl.sdacademy.tweeter.model.LoginManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,9 +22,13 @@ public class ServletContextInitializer implements ServletContextListener {
     }
 
     private void registerTwitterServlet(ServletContext context) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
-        EntityManager entityManager = factory.createEntityManager();
+        //context jest tylko jeden można wszystko do niego dodać
+        EntityManager entityManager = TwitterEntityManagerFactory.entityManager();
         Dashboard dashboard = new Dashboard(entityManager);
         context.addServlet("TweeterServlet", new TweeterServlet(dashboard)).addMapping("/tweeter");
+
+        LoginManager loginManager = new LoginManager(new JpaAuthorRepository(entityManager));
+        LoginServlet loginServlet = new LoginServlet(loginManager);
+        context.addServlet("LoginServlet", loginServlet).addMapping("/login");
     }
 }
